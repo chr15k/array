@@ -17,33 +17,33 @@ composer require chr15k/array
 
 ## Usage
 
-[accessible](#accessible)
-[add](#add)
-[collapse](#collapse)
-[cross_join](#cross_join)
-[divide](#divide)
-[dot](#dot)
-[except](#except)
-[exists](#exists)
-[first](#first)
-[flatten](#flatten)
-[forget](#forget)
-[get](#get)
-[has](#has)
-[has_any](#has_any)
-[is_assoc](#is_assoc)
-[last](#last)
-[only](#only)
-[pluck](#pluck)
-[prepend](#prepend)
-[pull](#pull)
-[query](#query)
-[random](#random)
-[set](#set)
-[shuffle](#shuffle)
-[sort_recursive](#sort_recursive)
-[where](#where)
-[wrap](#wrap)
+- [accessible](#accessible)
+- [add](#add)
+- [collapse](#collapse)
+- [cross_join](#cross_join)
+- [divide](#divide)
+- [dot](#dot)
+- [except](#except)
+- [exists](#exists)
+- [first](#first)
+- [flatten](#flatten)
+- [forget](#forget)
+- [get](#get)
+- [has](#has)
+- [has_any](#has_any)
+- [is_assoc](#is_assoc)
+- [last](#last)
+- [only](#only)
+- [pluck](#pluck)
+- [prepend](#prepend)
+- [pull](#pull)
+- [query](#query)
+- [random](#random)
+- [set](#set)
+- [shuffle](#shuffle)
+- [sort_recursive](#sort_recursive)
+- [where](#where)
+- [wrap](#wrap)
 
 ### <a id="accessible"></a>arr_accessible()
 The arr_accessible method checks that the given value is array accessible:
@@ -85,10 +85,10 @@ $array = arr_collapse([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
 ```
 
 ### <a id="cross_join"></a>arr_cross_join()
-The arr_crossJoin method cross joins the given arrays, returning a Cartesian product with all possible permutations:
+The arr_cross_join method cross joins the given arrays, returning a Cartesian product with all possible permutations:
 
 ```php
-$matrix = arr_crossJoin([1, 2], ['a', 'b']);
+$matrix = arr_cross_join([1, 2], ['a', 'b']);
 
 /*
     [
@@ -99,7 +99,7 @@ $matrix = arr_crossJoin([1, 2], ['a', 'b']);
     ]
 */
 
-$matrix = arr_crossJoin([1, 2], ['a', 'b'], ['I', 'II']);
+$matrix = arr_cross_join([1, 2], ['a', 'b'], ['I', 'II']);
 
 /*
     [
@@ -242,15 +242,15 @@ The arr_has_any method checks whether any item in a given set exists in an array
 ```php
 $array = ['product' => ['name' => 'Desk', 'price' => 100]];
 
-$contains = arr_hasAny($array, 'product.name');
+$contains = arr_has_any($array, 'product.name');
 
 // true
 
-$contains = arr_hasAny($array, ['product.name', 'product.discount']);
+$contains = arr_has_any($array, ['product.name', 'product.discount']);
 
 // true
 
-$contains = arr_hasAny($array, ['category', 'product.discount']);
+$contains = arr_has_any($array, ['category', 'product.discount']);
 
 // false
 ```
@@ -259,11 +259,11 @@ $contains = arr_hasAny($array, ['category', 'product.discount']);
 The arr_is_assoc returns true if the given array is an associative array. An array is considered "associative" if it doesn't have sequential numerical keys beginning with zero:
 
 ```php
-$isAssoc = arr_isAssoc(['product' => ['name' => 'Desk', 'price' => 100]]);
+$isAssoc = arr_is_assoc(['product' => ['name' => 'Desk', 'price' => 100]]);
 
 // true
 
-$isAssoc = arr_isAssoc([1, 2, 3]);
+$isAssoc = arr_is_assoc([1, 2, 3]);
 
 // false
 ```
@@ -405,7 +405,7 @@ $array = arr_shuffle([1, 2, 3, 4, 5]);
 ```
 
 ### <a id="sort_recursive"></a>arr_sort_recursive()
-The arr_sortRecursive method recursively sorts an array using the sort function for numeric sub=arrays and ksort for associative subarrays:
+The arr_sort_recursive method recursively sorts an array using the sort function for numeric sub=arrays and ksort for associative subarrays:
 
 ```php
 $array = [
@@ -414,7 +414,7 @@ $array = [
     ['one' => 1, 'two' => 2, 'three' => 3],
 ];
 
-$sorted = arr_sortRecursive($array);
+$sorted = arr_sort_recursive($array);
 
 /*
     [
