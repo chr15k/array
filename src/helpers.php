@@ -2,6 +2,19 @@
 
 use Chr15k\Arr\Arr;
 
+if (! function_exists('arr_accessible')) {
+    /**
+     * Determine whether the given value is array accessible.
+     *
+     * @param  mixed  $value
+     * @return bool
+     */
+    function arr_accessible($value)
+    {
+        return Arr::accessible($value);
+    }
+}
+
 if (! function_exists('arr_add')) {
     /**
      * Add an element to an array using "dot" notation if it doesn't exist.
@@ -27,6 +40,19 @@ if (! function_exists('arr_collapse')) {
     function arr_collapse($array)
     {
         return Arr::collapse($array);
+    }
+}
+
+if (! function_exists('arr_cross_join')) {
+    /**
+     * Cross join the given arrays, returning all possible permutations.
+     *
+     * @param  array  $arrays
+     * @return array
+     */
+    function arr_cross_join($arrays)
+    {
+        return Arr::crossJoin($arrays);
     }
 }
 
@@ -68,6 +94,20 @@ if (! function_exists('arr_except')) {
     function arr_except($array, $keys)
     {
         return Arr::except($array, $keys);
+    }
+}
+
+if (! function_exists('arr_exists')) {
+    /**
+     * Determine if the given key exists in the provided array.
+     *
+     * @param  \ArrayAccess|array  $array
+     * @param  string|int  $key
+     * @return bool
+     */
+    function arr_exists($array, $key)
+    {
+        return Arr::exists($array, $key);
     }
 }
 
@@ -140,6 +180,35 @@ if (! function_exists('arr_has')) {
     function arr_has($array, $keys)
     {
         return Arr::has($array, $keys);
+    }
+}
+
+if (! function_exists('arr_has_any')) {
+    /**
+     * Determine if any of the keys exist in an array using "dot" notation.
+     *
+     * @param  \ArrayAccess|array  $array
+     * @param  string|array  $keys
+     * @return bool
+     */
+    function arr_has_any($array, $keys)
+    {
+        return Arr::hasAny($array, $keys);
+    }
+}
+
+if (! function_exists('arr_is_assoc')) {
+    /**
+     * Determines if an array is associative.
+     *
+     * An array is "associative" if it doesn't have sequential numerical keys beginning with zero.
+     *
+     * @param  array  $array
+     * @return bool
+     */
+    function arr_is_assoc(array $array)
+    {
+        return Arr::isAssoc($array);
     }
 }
 
@@ -217,6 +286,19 @@ if (! function_exists('arr_pull')) {
     }
 }
 
+if (! function_exists('arr_query')) {
+    /**
+     * Convert the array into a query string.
+     *
+     * @param  array  $array
+     * @return string
+     */
+    function arr_query($array)
+    {
+        return Arr::query($array);
+    }
+}
+
 if (! function_exists('arr_random')) {
     /**
      * Get a random value from an array.
@@ -245,6 +327,20 @@ if (! function_exists('arr_set')) {
     function arr_set(&$array, $key, $value)
     {
         return Arr::set($array, $key, $value);
+    }
+}
+
+if (! function_exists('arr_shuffle')) {
+    /**
+     * Shuffle the given array and return the result.
+     *
+     * @param  array  $array
+     * @param  int|null  $seed
+     * @return array
+     */
+    function arr_shuffle($array, $seed = null)
+    {
+        return Arr::shuffle($array, $seed);
     }
 }
 
