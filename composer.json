@@ -1,0 +1,42 @@
+{
+    "name": "chr15k/array",
+    "description": "Array helpers package",
+    "type": "library",
+    "keywords": [
+        "chr15k",
+        "array"
+    ],
+    "homepage": "https://github.com/chr15k/array",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chris Keller",
+            "email": "christhecoder85@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "nesbot/carbon": "^2.36",
+        "phpunit/phpunit": "^9.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chr15k\\Arr\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Chr15k\\Arr\\Test\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
