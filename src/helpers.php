@@ -206,9 +206,22 @@ if (! function_exists('arr_is_assoc')) {
      * @param  array  $array
      * @return bool
      */
-    function arr_is_assoc(array $array)
+    function arr_is_assoc($array)
     {
         return Arr::isAssoc($array);
+    }
+}
+
+if (! function_exists('arr_is_multi_dimensional')) {
+    /**
+     * Determines if an array is multi-dimensional.
+     *
+     * @param  array
+     * @return boolean
+     */
+    function arr_is_multi_dimensional($array)
+    {
+        return Arr::isMultiDimensional($array);
     }
 }
 
@@ -341,6 +354,20 @@ if (! function_exists('arr_shuffle')) {
     function arr_shuffle($array, $seed = null)
     {
         return Arr::shuffle($array, $seed);
+    }
+}
+
+if (! function_exists('arr_sort')) {
+    /**
+     * Sort the array by its values.
+     *
+     * @param  array   $array
+     * @param  boolean $reverse
+     * @return array
+     */
+    function arr_sort($array, $reverse = false)
+    {
+        return Arr::sort($array, $reverse);
     }
 }
 

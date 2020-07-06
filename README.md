@@ -32,6 +32,7 @@ composer require chr15k/array
 - [has](#has)
 - [has_any](#has_any)
 - [is_assoc](#is_assoc)
+- [is_multi_dimensional](#is_multi_dimensional)
 - [last](#last)
 - [only](#only)
 - [pluck](#pluck)
@@ -41,6 +42,7 @@ composer require chr15k/array
 - [random](#random)
 - [set](#set)
 - [shuffle](#shuffle)
+- [sort](#sort)
 - [sort_recursive](#sort_recursive)
 - [where](#where)
 - [wrap](#wrap)
@@ -268,6 +270,34 @@ $isAssoc = arr_is_assoc([1, 2, 3]);
 // false
 ```
 
+### <a id="is_multi_dimensional"></a>arr_is_multi_dimensional()
+The arr_is_multi_dimensional method returns true if the given array is multi-dimensional
+
+```php
+$isMultiDimensional = arr_is_multi_dimensional(['product' => ['name' => 'Desk', 'price' => 100]]);
+
+// true
+
+$isMultiDimensional = arr_is_multi_dimensional([2, 3, [4]]);
+
+// true
+
+$isMultiDimensional = arr_is_multi_dimensional([2, 3, 4]);
+
+// false
+
+$isMultiDimensional = arr_is_multi_dimensional(['name' => 'Desk', 'price' => 100]);
+
+// false
+
+
+// Accounts for empty arrays
+
+$isMultiDimensional = arr_is_multi_dimensional(['name' => 'Desk', 'price' => 100, []]);
+
+// true
+```
+
 ### <a id="last"></a>arr_last()
 The arr_last method returns the last element of an array passing a given truth test:
 
@@ -402,6 +432,24 @@ The arr_shuffle method randomly shuffles the items in the array:
 $array = arr_shuffle([1, 2, 3, 4, 5]);
 
 // [3, 2, 5, 1, 4] - (generated randomly)
+```
+
+### <a id="sort"></a>arr_sort()
+The arr_sort method sorts an array by its values.
+
+```php
+$array = ['Desk', 'Table', 'Chair'];
+
+$sorted = arr_sort($array);
+
+// ['Chair', 'Desk', 'Table']
+
+
+// Reverse the order by passing true to the second argument
+
+$sorted = arr_sort($array, true);
+
+// ['Table', 'Desk', 'Chair']
 ```
 
 ### <a id="sort_recursive"></a>arr_sort_recursive()

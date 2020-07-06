@@ -420,6 +420,18 @@ class ArrTest extends TestCase
         $this->assertFalse(Arr::isAssoc(['a', 'b']));
     }
 
+    public function testIsMultiDimensional()
+    {
+        $this->assertFalse(Arr::isMultiDimensional(['a' => 'a', 0 => 'b']));
+        $this->assertTrue(Arr::isMultiDimensional([1 => 'a', 0 => 'b', [2 => 'c']]));
+        $this->assertFalse(Arr::isMultiDimensional([1 => 'a', 2 => 'b']));
+        $this->assertTrue(Arr::isMultiDimensional([0 => 'a', 1 => 'b', []]));
+        $this->assertFalse(Arr::isMultiDimensional(['a', 'b']));
+        $this->assertTrue(Arr::isMultiDimensional(['a', 'b', ['c']]));
+        $this->assertTrue(Arr::isMultiDimensional(['a', 'b', ['c'], []]));
+        $this->assertTrue(Arr::isMultiDimensional(['a', [], 'b', ['c'], []]));
+    }
+
     public function testOnly()
     {
         $array = ['name' => 'Desk', 'price' => 100, 'orders' => 10];
@@ -767,6 +779,55 @@ class ArrTest extends TestCase
         ];
 
         $this->assertEquals($expect, Arr::sortRecursive($array));
+    }
+
+    public function testSort()
+    {
+        // indexed arrays ASC order
+        $array = ['Chris', 'Zoe', 'Barry', 'Bob'];
+        $expected = ['Barry', 'Bob', 'Chris', 'Zoe'];
+
+        $this->assertEquals($expected, Arr::sort($array));
+
+        // assoc arrays ASC order
+        $array = [
+            'person1' => 'Chris',
+            'person2' => 'Zoe',
+            'person3' => 'Barry',
+            'person4' => 'Bob'
+        ];
+
+        $expected = [
+            'person3' => 'Barry',
+            'person4' => 'Bob',
+            'person1' => 'Chris',
+            'person2' => 'Zoe'
+        ];
+
+        $this->assertEquals($expected, Arr::sort($array));
+
+        // indexed arrays DESC order
+        $array = ['Chris', 'Zoe', 'Barry', 'Bob'];
+        $expected = [ 'Zoe', 'Chris', 'Bob', 'Barry'];
+
+        $this->assertEquals($expected, Arr::sort($array, true));
+
+        // assoc arrays DESC order
+        $array = [
+            'person1' => 'Chris',
+            'person2' => 'Zoe',
+            'person3' => 'Barry',
+            'person4' => 'Bob'
+        ];
+
+        $expected = [
+            'person2' => 'Zoe',
+            'person1' => 'Chris',
+            'person4' => 'Bob',
+            'person3' => 'Barry'
+        ];
+
+        $this->assertEquals($expected, Arr::sort($array, true));
     }
 
     public function testWhere()

@@ -384,6 +384,23 @@ class Arr
     }
 
     /**
+     * Determines if an array is multi-dimensional.
+     *
+     * @param  array
+     * @return boolean
+     */
+    public static function isMultiDimensional(array $array)
+    {
+        // Sort the sub-arrays towards the beginning of the parent array, and re-index.
+        rsort($array);
+
+        // Once sorted, if there are one or more sub-arrays,
+        // the first element of parent array will always be an array
+        // therefore we just check it is set, and is an array.
+        return (isset($array[0]) && is_array($array[0]));
+    }
+
+    /**
      * Get a subset of the items from the given array.
      *
      * @param  array  $array
@@ -584,12 +601,35 @@ class Arr
     }
 
     /**
+     * Sort the array by its values.
+     *
+     * @param  array   $array
+     * @param  boolean $reverse
+     * @return array
+     */
+    public static function sort(array $array, $reverse = false)
+    {
+        if (empty($array)) {
+            return $array;
+        }
+
+        if (static::isAssoc($array)) {
+            $reverse ? arsort($array) : asort($array);
+        } else {
+            $reverse ? rsort($array) : sort($array);
+        }
+
+        return $array;
+    }
+
+
+    /**
      * Recursively sort an array by keys and values.
      *
      * @param  array  $array
      * @return array
      */
-    public static function sortRecursive($array)
+    public static function sortRecursive(array $array)
     {
         foreach ($array as &$value) {
             if (is_array($value)) {
@@ -621,7 +661,7 @@ class Arr
      * Filter the array using the given callback.
      *
      * @param  array  $array
-     * @param  callable  $callback
+     * @param  §ble  $callback
      * @return array
      */
     public static function where($array, callable $callback)
