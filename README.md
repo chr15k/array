@@ -51,6 +51,10 @@ composer require chr15k/array
 The Arr::accessible method checks that the given value is array accessible:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $isAccessible = Arr::accessible(['a' => 1, 'b' => 2]);
 
 // true
@@ -68,6 +72,10 @@ $isAccessible = Arr::accessible(new stdClass);
 The Arr::add method adds a given key / value pair to an array if the given key doesn't already exist in the array or is set to null:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = Arr::add(['name' => 'Desk'], 'price', 100);
 
 // ['name' => 'Desk', 'price' => 100]
@@ -81,6 +89,10 @@ $array = Arr::add(['name' => 'Desk', 'price' => null], 'price', 100);
 The Arr::collapse method collapses an array of arrays into a single array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = Arr::collapse([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
 
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -90,6 +102,10 @@ $array = Arr::collapse([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
 The Arr::crossJoin method cross joins the given arrays, returning a Cartesian product with all possible permutations:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $matrix = Arr::crossJoin([1, 2], ['a', 'b']);
 
 /*
@@ -121,6 +137,10 @@ $matrix = Arr::crossJoin([1, 2], ['a', 'b'], ['I', 'II']);
 The Arr::divide method returns two arrays, one containing the keys, and the other containing the values of the given array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 [$keys, $values] = Arr::divide(['name' => 'Desk']);
 
 // $keys: ['name']
@@ -132,6 +152,10 @@ The Arr::divide method returns two arrays, one containing the keys, and the othe
 The Arr::dot method flattens a multi-dimensional array into a single level array that uses "dot" notation to indicate depth:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['products' => ['desk' => ['price' => 100]]];
 
 $flattened = Arr::dot($array);
@@ -143,6 +167,10 @@ $flattened = Arr::dot($array);
 The Arr::except method removes the given key / value pairs from an array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['name' => 'Desk', 'price' => 100];
 
 $filtered = Arr::except($array, ['price']);
@@ -154,6 +182,10 @@ $filtered = Arr::except($array, ['price']);
 The Arr::exists method checks that the given key exists in the provided array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['name' => 'John Doe', 'age' => 17];
 
 $exists = Arr::exists($array, 'name');
@@ -169,6 +201,10 @@ $exists = Arr::exists($array, 'salary');
 The Arr::first method returns the first element of an array passing a given truth test:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = [100, 200, 300];
 
 $first = Arr::first($array, function ($value, $key) {
@@ -187,6 +223,10 @@ $first = Arr::first($array, $callback, $default);
 The Arr::flatten method flattens a multi-dimensional array into a single level array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['name' => 'Joe', 'languages' => ['PHP', 'Ruby']];
 
 $flattened = Arr::flatten($array);
@@ -198,6 +238,10 @@ $flattened = Arr::flatten($array);
 The Arr::forget method removes a given key / value pair from a deeply nested array using "dot" notation:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['products' => ['desk' => ['price' => 100]]];
 
 Arr::forget($array, 'products.desk');
@@ -209,6 +253,10 @@ Arr::forget($array, 'products.desk');
 The Arr::get method retrieves a value from a deeply nested array using "dot" notation:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['products' => ['desk' => ['price' => 100]]];
 
 $price = Arr::get($array, 'products.desk.price');
@@ -227,6 +275,10 @@ $discount = Arr::get($array, 'products.desk.discount', 0);
 The Arr::has method checks whether a given item or items exists in an array using "dot" notation:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['product' => ['name' => 'Desk', 'price' => 100]];
 
 $contains = Arr::has($array, 'product.name');
@@ -242,6 +294,10 @@ $contains = Arr::has($array, ['product.price', 'product.discount']);
 The Arr::hasAny method checks whether any item in a given set exists in an array using "dot" notation:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['product' => ['name' => 'Desk', 'price' => 100]];
 
 $contains = Arr::hasAny($array, 'product.name');
@@ -261,6 +317,10 @@ $contains = Arr::hasAny($array, ['category', 'product.discount']);
 The Arr::isAssoc returns true if the given array is an associative array. An array is considered "associative" if it doesn't have sequential numerical keys beginning with zero:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $isAssoc = Arr::isAssoc(['product' => ['name' => 'Desk', 'price' => 100]]);
 
 // true
@@ -274,6 +334,10 @@ $isAssoc = Arr::isAssoc([1, 2, 3]);
 The Arr::isMultiDimensional method returns true if the given array is multi-dimensional
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $isMultiDimensional = Arr::isMultiDimensional(['product' => ['name' => 'Desk', 'price' => 100]]);
 
 // true
@@ -302,6 +366,10 @@ $isMultiDimensional = Arr::isMultiDimensional(['name' => 'Desk', 'price' => 100,
 The Arr::last method returns the last element of an array passing a given truth test:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = [100, 200, 300, 110];
 
 $last = Arr::last($array, function ($value, $key) {
@@ -319,6 +387,10 @@ $last = Arr::last($array, $callback, $default);
 The Arr::only method returns only the specified key / value pairs from the given array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['name' => 'Desk', 'price' => 100, 'orders' => 10];
 
 $slice = Arr::only($array, ['name', 'price']);
@@ -330,6 +402,10 @@ $slice = Arr::only($array, ['name', 'price']);
 The Arr::pluck method retrieves all of the values for a given key from an array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = [
     ['developer' => ['id' => 1, 'name' => 'Taylor']],
     ['developer' => ['id' => 2, 'name' => 'Abigail']],
@@ -350,6 +426,10 @@ $names = Arr::pluck($array, 'developer.name', 'developer.id');
 The Arr::prepend method will push an item onto the beginning of an array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['one', 'two', 'three', 'four'];
 
 $array = Arr::prepend($array, 'zero');
@@ -370,6 +450,10 @@ $array = Arr::prepend($array, 'Desk', 'name');
 The Arr::pull method returns and removes a key / value pair from an array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['name' => 'Desk', 'price' => 100];
 
 $name = Arr::pull($array, 'name');
@@ -388,6 +472,10 @@ $value = Arr::pull($array, $key, $default);
 The Arr::query method converts the array into a query string:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['name' => 'Taylor', 'order' => ['column' => 'created_at', 'direction' => 'desc']];
 
 Arr::query($array);
@@ -399,6 +487,10 @@ Arr::query($array);
 The Arr::random method returns a random value from an array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = [1, 2, 3, 4, 5];
 
 $random = Arr::random($array);
@@ -418,6 +510,10 @@ $items = Arr::random($array, 2);
 The Arr::set method sets a value within a deeply nested array using "dot" notation:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['products' => ['desk' => ['price' => 100]]];
 
 Arr::set($array, 'products.desk.price', 200);
@@ -429,6 +525,10 @@ Arr::set($array, 'products.desk.price', 200);
 The Arr::shuffle method randomly shuffles the items in the array:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = Arr::shuffle([1, 2, 3, 4, 5]);
 
 // [3, 2, 5, 1, 4] - (generated randomly)
@@ -438,6 +538,10 @@ $array = Arr::shuffle([1, 2, 3, 4, 5]);
 The Arr::sort method sorts an array by its values.
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = ['Desk', 'Table', 'Chair'];
 
 $sorted = Arr::sort($array);
@@ -456,6 +560,10 @@ $sorted = Arr::sort($array, true);
 The Arr::sortRecursive method recursively sorts an array using the sort function for numeric sub=arrays and ksort for associative subarrays:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = [
     ['Roman', 'Taylor', 'Li'],
     ['PHP', 'Ruby', 'JavaScript'],
@@ -477,6 +585,10 @@ $sorted = Arr::sortRecursive($array);
 The Arr::where method filters an array using the given Closure:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $array = [100, '200', 300, '400', 500];
 
 $filtered = Arr::where($array, function ($value, $key) {
@@ -490,6 +602,10 @@ $filtered = Arr::where($array, function ($value, $key) {
 The Arr::wrap method wraps the given value in an array. If the given value is already an array it will not be changed:
 
 ```php
+<?php
+
+use Chr15k\Arr\Arr;
+
 $string = 'Laravel';
 
 $array = Arr::wrap($string);
