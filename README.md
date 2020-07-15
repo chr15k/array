@@ -1,4 +1,4 @@
-# Array helpers for your PHP project
+# Awesome Array helpers for your PHP project
 
 [![Latest Stable Version](https://poser.pugx.org/chr15k/array/v)](//packagist.org/packages/chr15k/array) [![Latest Unstable Version](https://poser.pugx.org/chr15k/array/v/unstable)](//packagist.org/packages/chr15k/array) [![Total Downloads](https://poser.pugx.org/chr15k/array/downloads)](//packagist.org/packages/chr15k/array) [![License](https://poser.pugx.org/chr15k/array/license)](//packagist.org/packages/chr15k/array)
 
