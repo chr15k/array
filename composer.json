@@ -24,10 +24,7 @@
     "autoload": {
         "psr-4": {
             "Chr15k\\Arr\\": "src/"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {

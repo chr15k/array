@@ -396,7 +396,7 @@ class Arr
 
         // Once sorted, if there are one or more sub-arrays,
         // the first element of parent array will always be an array
-        // therefore we just check it is set, and is an array.
+        // therefore we just check it's set && is an array.
         return (isset($array[0]) && is_array($array[0]));
     }
 
