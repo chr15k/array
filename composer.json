@@ -1,10 +1,12 @@
 {
     "name": "chr15k/array",
-    "description": "Array helpers package",
+    "description": "Awesome Array helpers package",
     "type": "library",
     "keywords": [
         "chr15k",
-        "array"
+        "array",
+        "php",
+        "helpers"
     ],
     "homepage": "https://github.com/chr15k/array",
     "license": "MIT",
@@ -15,7 +17,7 @@
         }
     ],
     "require": {
-        "php": "^7.1"
+        "php": "^7.4"
     },
     "require-dev": {
         "nesbot/carbon": "^2.36",
